@@ -1,0 +1,39 @@
+class ValidAnagram{
+    public boolean isValidAnagram(string s, string t){
+        int n = s.length();
+        int m = t.length();
+
+        if (n != m) {
+            return false;
+        }
+
+        HashMap<Character, Integer> frequencyS = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> frequencyT = new HashMap<Character, Integer>();
+        
+        for(int i = 0; i < n; i++){
+            if (frequencyS.get(s.charAt(i)) == null){
+                frequencyS.put(s.charAt(i), 1);
+            } else {
+                frequencyS.put(s.charAt(i), frequencyS.get(s.charAt(i)) + 1)
+            }
+
+            if (frequencyT.get(t.charAt(i)) == null){
+                frequencyT.put(t.charAt(i), 1);
+            } else {
+                frequencyT.put(t.charAt(i), frequencyT.get(t.charAt(i)) + 1)
+            }
+        }
+
+        for(Character c : frequencyS.keySet()) {
+            if(frequencyS.get(c) != frequencyT.get(c)){
+                return false;
+            }
+        }
+        
+        return true;
+
+        
+
+        
+    }
+}
