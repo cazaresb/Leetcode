@@ -25,7 +25,7 @@ class ValidAnagram{
         }
 
         for(Character c : frequencyS.keySet()) {
-            if(frequencyS.get(c) != frequencyT.get(c)){
+            if(!frequencyS.get(c).equals(frequencyT.get(c))){
                 return false;
             }
         }
