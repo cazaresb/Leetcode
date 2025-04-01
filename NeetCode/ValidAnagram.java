@@ -1,5 +1,7 @@
+import java.util.*;
+
 class ValidAnagram{
-    public boolean isValidAnagram(string s, string t){
+    public boolean isValidAnagram(String s, String t){
         int n = s.length();
         int m = t.length();
 
@@ -7,20 +9,20 @@ class ValidAnagram{
             return false;
         }
 
-        HashMap<Character, Integer> frequencyS = new HashMap<Character, Integer>();
-        HashMap<Character, Integer> frequencyT = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> frequencyS = new HashMap<>();
+        HashMap<Character, Integer> frequencyT = new HashMap<>();
         
         for(int i = 0; i < n; i++){
             if (frequencyS.get(s.charAt(i)) == null){
                 frequencyS.put(s.charAt(i), 1);
             } else {
-                frequencyS.put(s.charAt(i), frequencyS.get(s.charAt(i)) + 1)
+                frequencyS.put(s.charAt(i), frequencyS.get(s.charAt(i)) + 1);
             }
 
             if (frequencyT.get(t.charAt(i)) == null){
                 frequencyT.put(t.charAt(i), 1);
             } else {
-                frequencyT.put(t.charAt(i), frequencyT.get(t.charAt(i)) + 1)
+                frequencyT.put(t.charAt(i), frequencyT.get(t.charAt(i)) + 1);
             }
         }
 
