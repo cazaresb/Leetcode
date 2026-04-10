@@ -4,29 +4,35 @@ class Solution {
     // Blue     = 2
     public void sortColors(int[] nums) {
         // Pointers to 3 colors
-        int rIdx = 0;
-        int wIdx = 1;
-        int bIdx = 2;
+        // Dijkstra's approach
+        int lo  = 0;
+        int hi  = nums.length - 1;
+        int mid = 0;
 
-        for (int i = 0; i < nums.length; i++)
+        while (mid <= hi)
         {
-            if (nums[i] == 0) // Red
+            if (nums[mid] == 0) // red
             {
-                nums[rIdx] = nums[i];
-                rIdx++;
-                wIdx++;
-                bIdx++;
+                // Swap w low
+                int tmp     = nums[lo];
+                nums[lo]    = nums[mid];
+                nums[mid]   = tmp;
+
+                lo++;
+                mid++;
             }
-            else if (nums[i] == 1) // White
+            else if (nums[mid] == 1) // white
             {
-                nums[wIdx] = nums[i]; 
-                wIdx++;
-                bIdx++;
+                mid++;
             }
-            else 
+            else
             {
-                nums[bIdx] = nums[i];
-                bIdx++;
+                // Swap w high
+                int tmp = nums[hi];
+                nums[hi] = nums[mid];
+                nums[mid] = tmp;
+
+                hi--;
             }
         }
     }
